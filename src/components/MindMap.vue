@@ -830,7 +830,7 @@ export default class MindMap extends Vue {
         .attr('x', foreignX)
         .attr('y', foreignY)
 
-      foreign.select('div').text(d.data.name)
+      foreign.select('div').html(d.data.name)
       node.select('path').filter((d, i, n) => (n[i] as Element).parentNode === m[k]).attr('id', pathId(d))
         .attr('class', pathClass(d))
         .attr('stroke', pathColor(d))
