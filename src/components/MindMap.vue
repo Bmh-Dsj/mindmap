@@ -754,9 +754,12 @@ export default class MindMap extends Vue {
   pathColor(d: FlexNode) { return d.data.color || 'white' }
   path(d: FlexNode) {
     const { xSpacing, link } = this
+    console.log(d)
+    console.log(xSpacing)
     const temp = (d.parent && d.parent.data.id === '0') ? -d.dy : (d.data.left ? xSpacing : -xSpacing)
     const sourceX = temp - d.py
     const sourceY = 0 - d.dx - d.px
+
     let textWidth = d.size[1] - xSpacing
     if (d.data.left) {
       textWidth = -textWidth
