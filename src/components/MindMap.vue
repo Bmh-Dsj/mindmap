@@ -776,7 +776,7 @@ export default class MindMap extends Vue {
     const gNode = enter.append('g').attr('class', gClass).attr('transform', gTransform)
 
     const foreign = gNode.append('foreignObject').attr('x', foreignX).attr('y', foreignY)
-    const foreignDiv = foreign.append('xhtml:div').attr('contenteditable', false).text((d: FlexNode) => d.data.name)
+    const foreignDiv = foreign.append('xhtml:div').attr('contenteditable', false).html((d: FlexNode) => d.data.name)
     foreignDiv.on('blur', updateNodeName).on('keydown', divKeyDown).on('mousedown', fdivMouseDown)
     foreignDiv.each((d, i, n) => {
       const observer = new ResizeObserver((l) => {
